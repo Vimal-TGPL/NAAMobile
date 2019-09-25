@@ -21,18 +21,16 @@
       </ion-select>
     </ion-item>
   </ion-toolbar>
-  <!-- <ion-toolbar >
-    <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="selectedsort">
-      <ion-segment-button checked layout="icon-end" value = "companyname">
-        <ion-label>COMPANYNAME</ion-label>
-        <ion-icon [name]="comicon"></ion-icon>
-      </ion-segment-button>
-      <ion-segment-button checked layout="icon-end" value="score">
-        <ion-label>SCORE</ion-label>
-        <ion-icon name="arrow-round-up"></ion-icon>
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar> -->
+  <ion-toolbar >
+    <ion-buttons>
+      <ion-button (click)="onClickCom()" style="width: 50%;">
+        Company Name <ion-icon slot="end" [name]="comicon" *ngIf="comiconhide"></ion-icon>
+      </ion-button>
+      <ion-button (click)="onClickScore()" style="width: 50%;">
+        Score <ion-icon slot="end" [name]="scoreicon" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
