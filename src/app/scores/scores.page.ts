@@ -28,9 +28,10 @@ export class ScoresPage implements OnInit {
   temp:any = [];
   n:any ;
   disabled:any;
-  comicon:any;
-  scoreicon:any;
+  comicon:any = "arrow-round-up";
+  scoreicon:any = "arrow-round-Down" ;
   comiconhide:any = false;
+  sourceiconhide:any = true;
   selectedsort:any = "score";
   comflag:any=1;
   scoreflag:any=1;
@@ -138,30 +139,37 @@ export class ScoresPage implements OnInit {
     
   // }
   onClickCom(){
+    this.sourceiconhide = false;
+    this.scoreicon = "arrow-round-up";
     if(this.comiconhide === false){
       this.comiconhide = true;
     }
-    if(this.comflag === 2){
+    if(this.comicon === "arrow-round-up"){
       this.comicon = "arrow-round-Down";
-      this.comflag = this.comflag-1;
+      //this.comflag = this.comflag-1;
       console.log(this.comflag);
-    }else if(this.comflag === 1)
+    }else if(this.comicon === "arrow-round-Down")
     {
       this.comicon = "arrow-round-up";
-      this.comflag = this.comflag+1;
+      //this.comflag = this.comflag+1;
       console.log(this.comflag);
     }
   }
 
   onClickScore(){
-    if(this.scoreflag === 2){
+    this.comiconhide = false;
+    this.comicon = "arrow-round-up";
+    if(this.sourceiconhide === false){
+      this.sourceiconhide = true;
+    }
+    if(this.scoreicon === "arrow-round-up"){
       this.scoreicon = "arrow-round-Down";
-      this.scoreflag = this.scoreflag-1;
+      //this.scoreflag = this.scoreflag-1;
       console.log(this.scoreflag);
-    }else if(this.scoreflag === 1)
+    }else if(this.scoreicon === "arrow-round-Down")
     {
       this.scoreicon = "arrow-round-up";
-      this.scoreflag = this.scoreflag+1;
+      //this.scoreflag = this.scoreflag+1;
       console.log(this.scoreflag);
     }
   }

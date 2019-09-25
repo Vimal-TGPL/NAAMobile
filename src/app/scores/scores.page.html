@@ -27,7 +27,7 @@
         Company Name <ion-icon slot="end" [name]="comicon" *ngIf="comiconhide"></ion-icon>
       </ion-button>
       <ion-button (click)="onClickScore()" style="width: 50%;">
-        Score <ion-icon slot="end" [name]="scoreicon" ></ion-icon>
+        Score <ion-icon slot="end" [name]="scoreicon" *ngIf="sourceiconhide"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
