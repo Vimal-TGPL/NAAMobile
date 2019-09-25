@@ -1,0 +1,13 @@
+.outer{
+    position: relative;
+}
+.inner{
+    overflow-x: scroll;
+    overflow-y: visible;
+    width: 500px;
+}
+.container{
+overflow-x: scroll;
+overflow-y: hidden;
+word-wrap: break-word;
+}

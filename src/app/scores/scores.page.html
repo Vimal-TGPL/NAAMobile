@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-padding-start">
+      <ion-back-button defaultHref="/landing"> </ion-back-button>
+    </ion-buttons>
+    <ion-title>scores</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar inputmode="text" (ionChange)="search($event)" placeholder="Ticker or Company name"></ion-searchbar>
+    <!-- <ion-list *ngIf="isItemAvailable">
+      <ion-item *ngFor="let item of firstdata">
+        {{item.companyName}}
+      </ion-item> -->
+    <!-- </ion-list> -->
+  </ion-toolbar>
+  <ion-toolbar *ngIf="hide">
+    <ion-item>
+      <ion-label>Index</ion-label>
+      <ion-select interface="action-sheet" [(ngModel)]="selectedcom" (ionChange)="onSlectorSelect($event)">
+        <ion-select-option *ngFor="let item of arr">{{item}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-toolbar>
+  <!-- <ion-toolbar >
+    <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="selectedsort">
+      <ion-segment-button checked layout="icon-end" value = "companyname">
+        <ion-label>COMPANYNAME</ion-label>
+        <ion-icon [name]="comicon"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button checked layout="icon-end" value="score">
+        <ion-label>SCORE</ion-label>
+        <ion-icon name="arrow-round-up"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content>
+  <div *ngIf="hide">
+    <ion-list>
+      <ion-card *ngFor="let item of temp" (click)="onClick(item.companyName,item.indexName)">
+        <ion-card-header>
+          <ion-card-title>
+            <p style="float: left;">{{item.companyName}} ({{item.ticker}})</p>
+            <p style="float: right;">{{percentConvertion(item.scores)}}%</p>
+          </ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-list>
+    <ion-infinite-scroll threshold="25%" (ionInfinite)="loadData($event)" [disabled]="disabled">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+  <!-- <div *ngIf="!hide">
+    <ion-list>
+      <ion-item-group *ngFor="let item of arr">
+        <ion-item-divider>
+          <ion-label>{{item}}</ion-label>
+        </ion-item-divider>
+      </ion-item-group>
+    </ion-list>
+  </div> -->
+  <div *ngIf="!hide">
+    <ion-list>
+      <ion-card *ngFor="let item of searchdata" (click)="onClick(item.companyName,item.indexName)">
+        <ion-card-header>
+          <ion-card-title>
+            <p style="float: left">{{item.companyName}} ({{item.ticker}})</p>
+            <p style="float: right;">{{percentConvertion(item.scores)}}%</p>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content style="clear: both; color: #00b9ff;">
+          <b>{{item.indexName}}</b>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  </div>
+</ion-content>

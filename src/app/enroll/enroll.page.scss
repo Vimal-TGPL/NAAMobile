@@ -1,0 +1,31 @@
+ion-content.background{
+    --ion-background-color: #2b468f;
+}
+
+.h1-formate{
+    font-weight: bold;
+    font-size: 30px;
+    color: ghostwhite;
+}
+
+.p-formate{
+    font-weight: bold;
+    color: ghostwhite;
+}
+.div-formate{
+   padding: 20px;
+}
+
+ion-item {
+    // --highlight-color-focused: red;
+    --border-color:white;
+//    padding-left: 15px;
+//    padding-right: 15px;
+    --padding-end:15px;
+}
+
+.ion-label{
+    --label-md-text-color-focused:red;
+    
+}
+

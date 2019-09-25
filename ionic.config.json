@@ -1,0 +1,8 @@
+{
+  "name": "NewAgeAlpha",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+  
+}

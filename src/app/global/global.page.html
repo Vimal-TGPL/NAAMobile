@@ -1,0 +1,201 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-padding-start">
+      <ion-back-button defaultHref="/landing"></ion-back-button>
+    </ion-buttons>
+    <ion-title><b>GLOBAL</b></ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-item>
+      <ion-label>Indexes</ion-label>
+      <ion-select interface="action-sheet" [(ngModel)]="selectedproduct" (ionChange)="onProductChange($event)">
+        <ion-select-option *ngFor="let item of global">{{item}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="ion-padding-horizontal">
+    <h3 class="h3_style"><b>{{selectedproduct}}</b></h3>
+    <p class="desc_p" [innerHTML]="desc"></p>
+  </div>
+  <div class="ion-padding-end">
+    <p class="date_p"><i>Inception Date : {{inceptionDate}}</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>As of
+        {{ondate}}</i></p>
+  </div>
+  <div class="ion-padding-horizontal">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>Name</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p><b>{{selectedproduct}}</b></p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>Value</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p>{{value}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>Daily</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p>{{daily}}%</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>YTD</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p>{{ytd}}%</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>1 Year</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p>{{year1}}%</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>3 Year*</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p>{{year3}}%</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>5 Year*</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p>{{year5}}%</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>10 Year*</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p>{{year10}}%</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>Cumulative Inception</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p>{{cum}}%</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>Annualized Inception</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p>{{ann}}%</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>2018</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p>{{y2018}}%</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>2017</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p>{{y2017}}%</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>2016</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <P>{{y2016}}%</P>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>2015</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p>{{y2015}}%</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>2014</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p>{{y2014}}%</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>2013</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p>{{y2013}}%</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>2012</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p>{{y2012}}%</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>2011</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p>{{y2011}}%</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>2010</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p>{{y2010}}%</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-col_style" size="5">
+          <p><b>2009</b></p>
+        </ion-col>
+        <ion-col class="ion_col_values">
+          <p>{{y2009}}%</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div>
+    <p class="p_style">
+      <i>
+        An index is unmanaged and performance does not reflect the effect of fees. One cannot invest directly in an
+        index. Please remember that investing involves risk, including possible loss of principal and past performance
+        cannot guarantee future results. Please carefully review our disclosures.
+      </i>
+    </p>
+  </div>
+</ion-content>

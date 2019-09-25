@@ -1,0 +1,96 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="ion-padding-start">
+            <ion-back-button defaultHref="/scores">
+            </ion-back-button>
+        </ion-buttons>
+        <ion-title>{{companyname}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="ion-margin-top">
+        <ion-grid>
+            <ion-row>
+                <ion-col class="ion-col_style" size="5">
+                    <p><b>Company Name</b></p>
+                </ion-col>
+                <ion-col class="ion_col_values">
+                    <p><b>{{companyname}}</b></p>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="ion-col_style" size="5">
+                    <p><b>Ticker</b></p>
+                </ion-col>
+                <ion-col class="ion_col_values">
+                    <p>{{ticker}}</p>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="ion-col_style" size="5">
+                    <p><b>Score</b></p>
+                </ion-col>
+                <ion-col class="ion_col_values">
+                    <p>{{scores}}%</p>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="ion-col_style" size="5">
+                    <p><b>Trade Date</b></p>
+                </ion-col>
+                <ion-col class="ion_col_values">
+                    <p>{{tradedate}}</p>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="ion-col_style" size="5">
+                    <p><b>Stock Key</b></p>
+                </ion-col>
+                <ion-col class="ion_col_values">
+                    <p>{{stockkey}}</p>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="ion-col_style" size="5">
+                    <p><b>Index Name</b></p>
+                </ion-col>
+                <ion-col class="ion_col_values">
+                    <p>{{indexname}}</p>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="ion-col_style" size="5">
+                    <p><b>Country</b></p>
+                </ion-col>
+                <ion-col class="ion_col_values">
+                    <p>{{country}}</p>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="ion-col_style" size="5">
+                    <p><b>Industry</b></p>
+                </ion-col>
+                <ion-col class="ion_col_values">
+                    <p>{{industry}}</p>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="ion-col_style" size="5">
+                    <p><b>ISIN</b></p>
+                </ion-col>
+                <ion-col class="ion_col_values">
+                    <p>{{isin}}</p>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="ion-col_style" size="5">
+                    <p><b>Market Cap</b></p>
+                </ion-col>
+                <ion-col class="ion_col_values">
+                    <p>{{marketcap}}</p>
+                </ion-col>
+            </ion-row>
+      </ion-grid>
+  </div>
+</ion-content>
