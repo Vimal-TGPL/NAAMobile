@@ -71,9 +71,25 @@ export class ScoresPage implements OnInit {
 
   onSlectorSelect(comp) {
     this.firstdata = this.somedata.filter((item) => item.indexName === comp.detail.value);
+    this.firstdata.sort((a,b)=>{
+      return a.scores-b.scores;
+    });
+    //this.firstdata.reverse();
     this.temp.length = 0;
     this.addMoreItems();
     this.disabled = false;
+    if(this.sourceiconhide === true){
+      this.scoreicon = "arrow-round-Down";
+    }
+    // else{
+    //   this.scoreicon = "arrow-round-up";
+    // }
+    if(this.comiconhide === true){
+      //this.comicon = "arrow-round-Down";
+      this.comiconhide = false;
+      this.scoreicon = "arrow-round-Down";
+      this.sourceiconhide = true;
+    }
   }
 
   initializeData() {
@@ -123,21 +139,6 @@ export class ScoresPage implements OnInit {
       }
   }
 
-  // segmentChanged(event){
-    
-  //   if(this.flag == 1)
-  //   {
-  //     this.comicon = "arrow-round-down";
-  //     this.flag+=1;
-  //   }else if(this.flag ==2){
-  //     this.comicon = "arrow-round-up";
-  //     this.flag-=1;
-  //   }
-    //else if(this.comicon = "arrow-round-down"){
-    //   this.comicon = "arrow-round-up";
-    //}
-    
-  // }
   onClickCom(){
     this.sourceiconhide = false;
     this.scoreicon = "arrow-round-up";
@@ -146,12 +147,13 @@ export class ScoresPage implements OnInit {
     }
     if(this.comicon === "arrow-round-up"){
       this.comicon = "arrow-round-Down";
-      //this.comflag = this.comflag-1;
+      this.comSort();
+      //console()
       console.log(this.comflag);
     }else if(this.comicon === "arrow-round-Down")
     {
       this.comicon = "arrow-round-up";
-      //this.comflag = this.comflag+1;
+      this.comSort();
       console.log(this.comflag);
     }
   }
@@ -165,13 +167,48 @@ export class ScoresPage implements OnInit {
     if(this.scoreicon === "arrow-round-up"){
       this.scoreicon = "arrow-round-Down";
       //this.scoreflag = this.scoreflag-1;
+      this.scoreSort();
       console.log(this.scoreflag);
     }else if(this.scoreicon === "arrow-round-Down")
     {
       this.scoreicon = "arrow-round-up";
       //this.scoreflag = this.scoreflag+1;
+      this.scoreSort();
       console.log(this.scoreflag);
     }
   }
 
+  scoreSort(){
+    if(this.scoreicon ==="arrow-round-Down"){
+      this.firstdata.sort((a,b)=>{
+        return a.scores-b.scores;
+      });
+      this.temp.length=0;
+      this.addMoreItems();
+    }else if(this.scoreicon ==="arrow-round-up"){
+      this.firstdata.sort((a,b)=>{
+        return a.scores-b.scores;
+      });
+      this.firstdata.reverse();
+      this.temp.length=0;
+      this.addMoreItems();
+    }
+  }
+
+  comSort(){
+    if(this.comicon === "arrow-round-Down"){
+      this.firstdata.sort(function(a, b) {
+        return a.companyName.localeCompare(b.companyName);
+     });
+     this.temp.length=0;
+      this.addMoreItems();
+    }else if(this.comicon === "arrow-round-up"){
+      this.firstdata.sort(function(a, b) {
+        return a.companyName.localeCompare(b.companyName);
+     });
+      this.firstdata.reverse();
+     this.temp.length=0;
+      this.addMoreItems();
+    }
+  }
 }

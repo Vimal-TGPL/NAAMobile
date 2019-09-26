@@ -21,7 +21,7 @@
       </ion-select>
     </ion-item>
   </ion-toolbar>
-  <ion-toolbar >
+  <ion-toolbar *ngIf="hide">
     <ion-buttons>
       <ion-button (click)="onClickCom()" style="width: 50%;">
         Company Name <ion-icon slot="end" [name]="comicon" *ngIf="comiconhide"></ion-icon>
@@ -50,15 +50,6 @@
       </ion-infinite-scroll-content>
     </ion-infinite-scroll>
   </div>
-  <!-- <div *ngIf="!hide">
-    <ion-list>
-      <ion-item-group *ngFor="let item of arr">
-        <ion-item-divider>
-          <ion-label>{{item}}</ion-label>
-        </ion-item-divider>
-      </ion-item-group>
-    </ion-list>
-  </div> -->
   <div *ngIf="!hide">
     <ion-list>
       <ion-card *ngFor="let item of searchdata" (click)="onClick(item.companyName,item.indexName)">
