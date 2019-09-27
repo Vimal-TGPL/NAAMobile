@@ -142,13 +142,8 @@ export class ScoresPage implements OnInit {
       this.comicon = "arrow-round-Down";
       this.comSort();
       console.log(this.comflag);
-<<<<<<< HEAD
       this.content.scrollToTop(1500);
-    }else if(this.comicon === "arrow-round-Down")
-    {
-=======
     } else if (this.comicon === "arrow-round-Down") {
->>>>>>> 9b1dc76a5507ec80f6f9171792bfa92054b92d07
       this.comicon = "arrow-round-up";
       this.comSort();
       console.log(this.comflag);
@@ -166,13 +161,9 @@ export class ScoresPage implements OnInit {
       this.scoreicon = "arrow-round-Down";
       this.scoreSort();
       console.log(this.scoreflag);
-<<<<<<< HEAD
       this.content.scrollToTop(1500);
     }else if(this.scoreicon === "arrow-round-Down")
     {
-=======
-    } else if (this.scoreicon === "arrow-round-Down") {
->>>>>>> 9b1dc76a5507ec80f6f9171792bfa92054b92d07
       this.scoreicon = "arrow-round-up";
       this.scoreSort();
       console.log(this.scoreflag);
