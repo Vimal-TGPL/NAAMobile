@@ -20,7 +20,7 @@ export class HomePage {
   url='https://demo-alpha2.newagealpha.com/';
   //url = 'https://demo.newagealpha.com/home';
   //url = 'https://api.newagealpha.com/index.html';
-  target = '_self';
+  target = '_blank';
   connected : Subscription;
   disconnected : Subscription;
 
@@ -42,7 +42,7 @@ export class HomePage {
     console.log(networkstate);
     if (networkstate !== this.network.Connection.NONE) {
       this.screenorientation.lock(this.screenorientation.ORIENTATIONS.LANDSCAPE);
-     const browser= this.iab.create(this.url, this.target, { toolbarcolor:"#ffffff",toolbarposition: 'bottom', toolbar: 'yes', location: 'no', zoom: 'no', hideurlbar: 'yes', hardwareback: 'yes',closebuttoncaption: 'Back', closebuttoncolor:'#2b468f', disallowoverscroll: 'yes' });
+     const browser= this.iab.create(this.url, this.target);
     //  browser.on('loadstop').subscribe(event =>{
     //    //browser.insertCSS({code: ".navbar-expand-sm .navbar-toggler {display: none;}"});
     //   //  browser.executeScript({
