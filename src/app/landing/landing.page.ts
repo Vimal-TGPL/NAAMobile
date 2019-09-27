@@ -28,14 +28,14 @@ export class LandingPage implements OnInit {
   svg: any;
 
   constructor(public router:Router) {
-    this.width = 900 - this.margin.left - this.margin.right ;
-    this.height = 500 - this.margin.top - this.margin.bottom;
-    this.radius = Math.min(this.width, this.height) / 2;
+    // this.width = 900 - this.margin.left - this.margin.right ;
+    // this.height = 500 - this.margin.top - this.margin.bottom;
+    // this.radius = Math.min(this.width, this.height) / 2;
    }
 
   ngOnInit() {
-    this.initSvg();
-    this.drawPie();
+    //this.initSvg();
+    //this.drawPie();
   }
 
   initSvg() {

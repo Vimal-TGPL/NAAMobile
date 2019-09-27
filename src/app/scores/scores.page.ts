@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HTTP } from '@ionic-native/http/ngx';
-import { ModalController, IonInfiniteScroll, IonContent } from '@ionic/angular';
+import { ModalController, IonInfiniteScroll, IonContent,LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -37,10 +37,15 @@ export class ScoresPage implements OnInit {
 
 
 
-  constructor(private httpnative: HTTP, private modalController: ModalController, private router: Router) {
+  constructor(private httpnative: HTTP, private modalController: ModalController, private router: Router,public loadingController: LoadingController) {
   }
 
   ngOnInit() {
+    const loading = this.loadingController.create({
+      message: "Please Wait...",
+      duration: 5000
+    });
+    loading.then(load=>load.present());
     this.getScoreDetail();
   }
 

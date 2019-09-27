@@ -38,12 +38,6 @@ export class AuthPage  {
   async login(){
     if(this.uname === "admin" && this.pass === "admin")
     {
-      const alert= await this.alertctrl.create({
-        header:'Message',
-        message:'Login Sucess',
-        buttons: ['OK']
-      });
-      await alert.present();
       this.router.navigateByUrl('/landing');
     }else{
       const alert= await this.alertctrl.create({
