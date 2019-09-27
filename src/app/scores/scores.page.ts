@@ -2,8 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { HTTP } from '@ionic-native/http/ngx';
 import { ModalController, IonInfiniteScroll, IonContent } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { uptime } from 'os';
-
 
 @Component({
   selector: 'app-scores',
@@ -24,18 +22,18 @@ export class ScoresPage implements OnInit {
   firstdata: any;
   isItemAvailable = false;
   selectedindex: any;
-  hide:any = true;
-  searchdata:any = [];
-  temp:any = [];
-  n:any ;
-  disabled:any;
-  comicon:any = "arrow-round-up";
-  scoreicon:any = "arrow-round-Down" ;
-  comiconhide:any = false;
-  sourceiconhide:any = true;
-  selectedsort:any = "score";
-  comflag:any=1;
-  scoreflag:any=1;
+  hide: any = true;
+  searchdata: any = [];
+  temp: any = [];
+  n: any;
+  disabled: any;
+  comicon: any = "arrow-round-up";
+  scoreicon: any = "arrow-round-Down";
+  comiconhide: any = false;
+  sourceiconhide: any = true;
+  selectedsort: any = "score";
+  comflag: any = 1;
+  scoreflag: any = 1;
 
 
 
@@ -50,7 +48,7 @@ export class ScoresPage implements OnInit {
     let that = this;
     this.httpnative.get(this.APIUrl, {}, {}).then((data) => {
       that.somedata = JSON.parse(data.data);
-      this.somedata = this.somedata.filter(function(value, index, self){
+      this.somedata = this.somedata.filter(function (value, index, self) {
         return self.indexOf(value) === index;
       })
       that.arr = that.somedata.map(x => x.indexName);
@@ -72,21 +70,16 @@ export class ScoresPage implements OnInit {
 
   onSlectorSelect(comp) {
     this.firstdata = this.somedata.filter((item) => item.indexName === comp.detail.value);
-    this.firstdata.sort((a,b)=>{
-      return a.scores-b.scores;
+    this.firstdata.sort((a, b) => {
+      return a.scores - b.scores;
     });
-    //this.firstdata.reverse();
     this.temp.length = 0;
     this.addMoreItems();
     this.disabled = false;
-    if(this.sourceiconhide === true){
+    if (this.sourceiconhide === true) {
       this.scoreicon = "arrow-round-Down";
     }
-    // else{
-    //   this.scoreicon = "arrow-round-up";
-    // }
-    if(this.comiconhide === true){
-      //this.comicon = "arrow-round-Down";
+    if (this.comiconhide === true) {
       this.comiconhide = false;
       this.scoreicon = "arrow-round-Down";
       this.sourceiconhide = true;
@@ -102,8 +95,7 @@ export class ScoresPage implements OnInit {
     if (event.target.value.length != 0) {
       const query = event.target.value.toLowerCase();
       if (query && query.trim() != '') {
-        if(this.hide === true)
-        {
+        if (this.hide === true) {
           this.hide = false;
         }
         this.isItemAvailable = true;
@@ -111,49 +103,52 @@ export class ScoresPage implements OnInit {
           return (item.companyName.toLowerCase().indexOf(query.toLowerCase()) > -1) || (item.ticker.toLowerCase().indexOf(query.toLowerCase()) > -1);
         })
       }
-    }else{
+    } else {
       this.hide = true;
-      
+
     }
   }
 
-  loadData(event){
-    setTimeout(()=>{
+  loadData(event) {
+    setTimeout(() => {
       this.addMoreItems();
       event.target.complete();
-      if(this.temp.length === this.firstdata.length){
+      if (this.temp.length === this.firstdata.length) {
         this.disabled = true;
       }
-    },1000);
+    }, 1000);
   }
 
-  addMoreItems(){
+  addMoreItems() {
     let len = this.temp.length;
     let remainig = this.firstdata.length - len;
-    if(remainig > 50)
-    { this.n = len+50;
-    }else{
-      this.n = len+remainig;
+    if (remainig > 50) {
+      this.n = len + 50;
+    } else {
+      this.n = len + remainig;
     }
-      for(let i= len; i < this.n ;i++ ){
-        this.temp.push(this.firstdata[i]);
-      }
+    for (let i = len; i < this.n; i++) {
+      this.temp.push(this.firstdata[i]);
+    }
   }
 
-  onClickCom(){
+  onClickCom() {
     this.sourceiconhide = false;
     this.scoreicon = "arrow-round-up";
-    if(this.comiconhide === false){
+    if (this.comiconhide === false) {
       this.comiconhide = true;
     }
-    if(this.comicon === "arrow-round-up"){
+    if (this.comicon === "arrow-round-up") {
       this.comicon = "arrow-round-Down";
       this.comSort();
-      //console()
       console.log(this.comflag);
+<<<<<<< HEAD
       this.content.scrollToTop(1500);
     }else if(this.comicon === "arrow-round-Down")
     {
+=======
+    } else if (this.comicon === "arrow-round-Down") {
+>>>>>>> 9b1dc76a5507ec80f6f9171792bfa92054b92d07
       this.comicon = "arrow-round-up";
       this.comSort();
       console.log(this.comflag);
@@ -161,58 +156,60 @@ export class ScoresPage implements OnInit {
     }
   }
 
-  onClickScore(){
+  onClickScore() {
     this.comiconhide = false;
     this.comicon = "arrow-round-up";
-    if(this.sourceiconhide === false){
+    if (this.sourceiconhide === false) {
       this.sourceiconhide = true;
     }
-    if(this.scoreicon === "arrow-round-up"){
+    if (this.scoreicon === "arrow-round-up") {
       this.scoreicon = "arrow-round-Down";
-      //this.scoreflag = this.scoreflag-1;
       this.scoreSort();
       console.log(this.scoreflag);
+<<<<<<< HEAD
       this.content.scrollToTop(1500);
     }else if(this.scoreicon === "arrow-round-Down")
     {
+=======
+    } else if (this.scoreicon === "arrow-round-Down") {
+>>>>>>> 9b1dc76a5507ec80f6f9171792bfa92054b92d07
       this.scoreicon = "arrow-round-up";
-      //this.scoreflag = this.scoreflag+1;
       this.scoreSort();
       console.log(this.scoreflag);
       this.content.scrollToTop(1500);
     }
   }
 
-  scoreSort(){
-    if(this.scoreicon ==="arrow-round-Down"){
-      this.firstdata.sort((a,b)=>{
-        return a.scores-b.scores;
+  scoreSort() {
+    if (this.scoreicon === "arrow-round-Down") {
+      this.firstdata.sort((a, b) => {
+        return a.scores - b.scores;
       });
-      this.temp.length=0;
+      this.temp.length = 0;
       this.addMoreItems();
-    }else if(this.scoreicon ==="arrow-round-up"){
-      this.firstdata.sort((a,b)=>{
-        return a.scores-b.scores;
+    } else if (this.scoreicon === "arrow-round-up") {
+      this.firstdata.sort((a, b) => {
+        return a.scores - b.scores;
       });
       this.firstdata.reverse();
-      this.temp.length=0;
+      this.temp.length = 0;
       this.addMoreItems();
     }
   }
 
-  comSort(){
-    if(this.comicon === "arrow-round-Down"){
-      this.firstdata.sort(function(a, b) {
+  comSort() {
+    if (this.comicon === "arrow-round-Down") {
+      this.firstdata.sort(function (a, b) {
         return a.companyName.localeCompare(b.companyName);
-     });
-     this.temp.length=0;
+      });
+      this.temp.length = 0;
       this.addMoreItems();
-    }else if(this.comicon === "arrow-round-up"){
-      this.firstdata.sort(function(a, b) {
+    } else if (this.comicon === "arrow-round-up") {
+      this.firstdata.sort(function (a, b) {
         return a.companyName.localeCompare(b.companyName);
-     });
+      });
       this.firstdata.reverse();
-     this.temp.length=0;
+      this.temp.length = 0;
       this.addMoreItems();
     }
   }
