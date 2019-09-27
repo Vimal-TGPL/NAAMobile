@@ -17,10 +17,10 @@ export class HomePage {
   splash = true;
   rootPage: any = HomePage;
   public counter = 0;
-  url='https://demo-alpha2.newagealpha.com/home';
+  url='https://demo-alpha2.newagealpha.com/';
   //url = 'https://demo.newagealpha.com/home';
   //url = 'https://api.newagealpha.com/index.html';
-  target = '_blank';
+  target = '_self';
   connected : Subscription;
   disconnected : Subscription;
 
@@ -43,16 +43,15 @@ export class HomePage {
     if (networkstate !== this.network.Connection.NONE) {
       this.screenorientation.lock(this.screenorientation.ORIENTATIONS.LANDSCAPE);
      const browser= this.iab.create(this.url, this.target, { toolbarcolor:"#ffffff",toolbarposition: 'bottom', toolbar: 'yes', location: 'no', zoom: 'no', hideurlbar: 'yes', hardwareback: 'yes',closebuttoncaption: 'Back', closebuttoncolor:'#2b468f', disallowoverscroll: 'yes' });
-     browser.on('loadstop').subscribe(event =>{
-       //browser.insertCSS({code: ".navbar-expand-sm .navbar-toggler {display: none;}"});
-      //  browser.executeScript({
-      //     code: ""
-      //  });
+    //  browser.on('loadstop').subscribe(event =>{
+    //    //browser.insertCSS({code: ".navbar-expand-sm .navbar-toggler {display: none;}"});
+    //   //  browser.executeScript({
+    //   //     code: ""
+    //   //  });
       
-     });
+    //  });
      browser.on('exit').subscribe(event =>{
       this.screenorientation.unlock();
-      
      })
     }
     else {

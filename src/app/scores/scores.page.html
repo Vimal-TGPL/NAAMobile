@@ -33,7 +33,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [scrollEvents]="true">
   <div *ngIf="hide">
     <ion-list>
       <ion-card *ngFor="let item of temp" (click)="onClick(item.companyName,item.indexName)">

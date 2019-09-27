@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HTTP } from '@ionic-native/http/ngx';
-import { ModalController, IonInfiniteScroll } from '@ionic/angular';
+import { ModalController, IonInfiniteScroll, IonContent } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { uptime } from 'os';
 
@@ -12,6 +12,7 @@ import { uptime } from 'os';
 })
 export class ScoresPage implements OnInit {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+  @ViewChild(IonContent) content: IonContent;
 
   APIUrl = "https://api.newagealpha.com/api/Scores/GetNAAIndexScoresCurrent/GLOBAL";
   public somedata: any;
@@ -150,11 +151,13 @@ export class ScoresPage implements OnInit {
       this.comSort();
       //console()
       console.log(this.comflag);
+      this.content.scrollToTop(1500);
     }else if(this.comicon === "arrow-round-Down")
     {
       this.comicon = "arrow-round-up";
       this.comSort();
       console.log(this.comflag);
+      this.content.scrollToTop(1500);
     }
   }
 
@@ -169,12 +172,14 @@ export class ScoresPage implements OnInit {
       //this.scoreflag = this.scoreflag-1;
       this.scoreSort();
       console.log(this.scoreflag);
+      this.content.scrollToTop(1500);
     }else if(this.scoreicon === "arrow-round-Down")
     {
       this.scoreicon = "arrow-round-up";
       //this.scoreflag = this.scoreflag+1;
       this.scoreSort();
       console.log(this.scoreflag);
+      this.content.scrollToTop(1500);
     }
   }
 
