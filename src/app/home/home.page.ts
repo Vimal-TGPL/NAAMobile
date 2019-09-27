@@ -18,8 +18,7 @@ export class HomePage {
   rootPage: any = HomePage;
   public counter = 0;
   url='https://demo-alpha2.newagealpha.com/';
-  //url = 'https://demo.newagealpha.com/home';
-  //url = 'https://api.newagealpha.com/index.html';
+  //url='https://api.newagealpha.com/';
   target = '_blank';
   connected : Subscription;
   disconnected : Subscription;
@@ -42,14 +41,9 @@ export class HomePage {
     console.log(networkstate);
     if (networkstate !== this.network.Connection.NONE) {
       this.screenorientation.lock(this.screenorientation.ORIENTATIONS.LANDSCAPE);
-     const browser= this.iab.create(this.url, this.target);
-    //  browser.on('loadstop').subscribe(event =>{
-    //    //browser.insertCSS({code: ".navbar-expand-sm .navbar-toggler {display: none;}"});
-    //   //  browser.executeScript({
-    //   //     code: ""
-    //   //  });
-      
-    //  });
+     const browser= this.iab.create(this.url,this.target);
+     browser.on('loadstop').subscribe(event =>{
+     });
      browser.on('exit').subscribe(event =>{
       this.screenorientation.unlock();
      })
