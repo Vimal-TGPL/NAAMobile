@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HTTP } from '@ionic-native/http/ngx';
+import { LoadingController } from '@ionic/angular';
+import { tick } from '@angular/core/testing';
 
 @Component({
   selector: 'app-modal',
@@ -22,10 +24,12 @@ export class ModalPage implements OnInit {
   isin:any;
   marketcap:any;
   hide:any=false;
+  loading :any;
 
-  constructor( private activatedRoutes:ActivatedRoute, private httpnative:HTTP) { }
+  constructor( private activatedRoutes:ActivatedRoute, private httpnative:HTTP, private loadingController:LoadingController) { }
 
   ngOnInit() {
+    this.presentLoading();
     this.companyname = this.activatedRoutes.snapshot.paramMap.get('comval');
     this.indexname = this.activatedRoutes.snapshot.paramMap.get('indexval');
     this.httpnative.get(this.APIurl,{},{}).then((data)=>{
@@ -101,11 +105,26 @@ export class ModalPage implements OnInit {
       }
     });
     this.scores = this.percentConvertion(this.scores);
+    this.loading.dismiss().then(()=>{
+      this.hide = true;
+    })
     });
-    
+    // if(this.ticker!= null){
+    //   this.loading.dismiss().then(res=>{
+    //     this.hide=true;
+    //   })
+    // }
   }
 
   percentConvertion(val) {
     return Math.round(val * 1000) / 10;
+  }
+
+  async presentLoading() {
+   this.loading = await this.loadingController.create({
+      message: 'Loading...',
+      cssClass:''
+    });
+    return this.loading.present();
   }
 }
