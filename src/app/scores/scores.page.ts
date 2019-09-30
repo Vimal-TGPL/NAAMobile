@@ -34,6 +34,7 @@ export class ScoresPage implements OnInit {
   selectedsort: any = "score";
   comflag: any = 1;
   scoreflag: any = 1;
+  loading:any;
 
 
 
@@ -41,11 +42,7 @@ export class ScoresPage implements OnInit {
   }
 
   ngOnInit() {
-    const loading = this.loadingController.create({
-      message: "Please Wait...",
-      duration: 5000
-    });
-    loading.then(load=>load.present());
+    this.presentLoading();
     this.getScoreDetail();
   }
 
@@ -62,6 +59,7 @@ export class ScoresPage implements OnInit {
       });
       this.selectedcom = this.arr[0];
       this.searchdata = this.somedata;
+      this.loading.dismiss();
     });
   }
 
@@ -208,5 +206,12 @@ export class ScoresPage implements OnInit {
       this.temp.length = 0;
       this.addMoreItems();
     }
+  }
+
+  async presentLoading() {
+    this.loading = await this.loadingController.create({
+      message: 'Loading...'
+    });
+    return this.loading.present();
   }
 }

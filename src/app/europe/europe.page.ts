@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HTTP } from '@ionic-native/http/ngx'
+import { HTTP } from '@ionic-native/http/ngx';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-europe',
@@ -40,8 +41,10 @@ export class EuropePage implements OnInit{
   y2009:any;
   ondate:any;
   tem:any;
+  loading:any;
+  hide:any=false;
 
-  constructor(private httpnative:HTTP) { 
+  constructor(private httpnative:HTTP,private loadingController:LoadingController) { 
     
   }
 
@@ -62,6 +65,9 @@ export class EuropePage implements OnInit{
           }
         }
         this.selectedproduct = this.europe[0];
+      });
+      this.loading.dismiss().then(()=>{
+        this.hide=true;
       });
     });
   }
@@ -187,5 +193,13 @@ export class EuropePage implements OnInit{
 
   roundValue(val){
     return Math.round(val*100)/100;
+  }
+  async presentLoading() {
+    this.loading = await this.loadingController.create({
+      message: 'Hellooo',
+      duration: 2000,
+      spinner: 'bubbles'
+    });
+    return this.loading.present();
   }
 }

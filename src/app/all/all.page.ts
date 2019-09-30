@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HTTP } from '@ionic-native/http/ngx'
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-all',
@@ -41,8 +42,10 @@ export class AllPage implements OnInit {
   y2009: any;
   ondate: any;
   tem: any;
+  loading:any;
+  hide:any=false;
 
-  constructor(private httpnative: HTTP) {
+  constructor(private httpnative: HTTP, private loadingController:LoadingController) {
     
   }
 
@@ -58,6 +61,9 @@ export class AllPage implements OnInit {
           counter = counter + 1;
         }
         this.selectedproduct = this.select[0];
+      });
+      this.loading.dismiss().then(()=>{
+        this.hide=true;
       });
     });
   }
@@ -192,6 +198,16 @@ export class AllPage implements OnInit {
   }
 
   ngOnInit() {
+    this.presentLoading();
     this.getnativeindexdetails();
+  }
+
+  async presentLoading() {
+    this.loading = await this.loadingController.create({
+      message: 'Hellooo',
+      duration: 2000,
+      spinner: 'bubbles'
+    });
+    return this.loading.present();
   }
 }

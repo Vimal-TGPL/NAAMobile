@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HTTP } from '@ionic-native/http/ngx'
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { LoadingController } from '@ionic/angular'
 
 @Component({
   selector: 'app-global',
@@ -45,8 +46,10 @@ export class GlobalPage implements OnInit{
   global: any = [];
   count: any = 0;
   tem:any;
+  loading:any;
+  hide:any=false;
 
-  constructor(private http: HttpClient, private httpnative: HTTP) {
+  constructor(private http: HttpClient, private httpnative: HTTP, private loadingController:LoadingController) {
     
   }
 
@@ -65,6 +68,9 @@ export class GlobalPage implements OnInit{
           }
         }
         this.selectedproduct = this.global[0];
+      });
+      this.loading.dismiss().then(()=>{
+        this.hide=true;
       });
     });
   }
@@ -199,5 +205,13 @@ export class GlobalPage implements OnInit{
 
   ngOnInit(){
     this.getnativeindexdetails();
+  }
+  async presentLoading() {
+    this.loading = await this.loadingController.create({
+      message: 'Hellooo',
+      duration: 2000,
+      spinner: 'bubbles'
+    });
+    return this.loading.present();
   }
 }
