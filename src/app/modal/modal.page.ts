@@ -123,7 +123,7 @@ export class ModalPage implements OnInit {
   async presentLoading() {
    this.loading = await this.loadingController.create({
       message: 'Loading...',
-      cssClass:''
+      //cssClass:'lds-facebook'
     });
     return this.loading.present();
   }
