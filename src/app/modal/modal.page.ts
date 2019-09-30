@@ -21,6 +21,7 @@ export class ModalPage implements OnInit {
   industry:any;
   isin:any;
   marketcap:any;
+  hide:any=false;
 
   constructor( private activatedRoutes:ActivatedRoute, private httpnative:HTTP) { }
 
