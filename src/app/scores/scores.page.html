@@ -39,8 +39,8 @@
       <ion-card *ngFor="let item of temp" (click)="onClick(item.companyName,item.indexName)">
         <ion-card-header>
           <ion-card-title>
-            <p style="float: left;">{{item.companyName}} ({{item.ticker}})</p>
-            <p style="float: right;">{{percentConvertion(item.scores)}}%</p>
+            <p style="float: left;font-size: 18px;">{{item.companyName}} ({{item.ticker}})</p>
+            <p style="float: right;font-size: 18px;">{{percentConvertion(item.scores)}}%</p>
           </ion-card-title>
         </ion-card-header>
       </ion-card>
@@ -55,12 +55,12 @@
       <ion-card *ngFor="let item of searchdata" (click)="onClick(item.companyName,item.indexName)">
         <ion-card-header>
           <ion-card-title>
-            <p style="float: left">{{item.companyName}} ({{item.ticker}})</p>
-            <p style="float: right;">{{percentConvertion(item.scores)}}%</p>
+            <p style="float: left;font-size: 18px;">{{item.companyName}} ({{item.ticker}})</p>
+            <p style="float: right;font-size: 18px;">{{percentConvertion(item.scores)}}%</p>
           </ion-card-title>
         </ion-card-header>
         <ion-card-content style="clear: both; color: #00b9ff;">
-          <b>{{item.indexName}}</b>
+          <b style="font-size: 16px;">{{item.indexName}}</b>
         </ion-card-content>
       </ion-card>
     </ion-list>

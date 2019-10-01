@@ -49,6 +49,7 @@ export class EuropePage implements OnInit{
   }
 
   ngOnInit(){
+    this.presentLoading();
     this.getnativeindexdetails();
   }
   getnativeindexdetails(){
@@ -196,9 +197,7 @@ export class EuropePage implements OnInit{
   }
   async presentLoading() {
     this.loading = await this.loadingController.create({
-      message: 'Hellooo',
-      duration: 2000,
-      spinner: 'bubbles'
+      message: 'Loading',
     });
     return this.loading.present();
   }
