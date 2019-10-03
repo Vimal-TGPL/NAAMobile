@@ -19,7 +19,6 @@ export class AllPage implements OnInit {
   value: any = null;
   anotherdata: any;
   performancedetails: any;
-  //compareWith : any;
   inceptionDate: any;
   indexcode: any;
   daily: any;
@@ -65,6 +64,8 @@ export class AllPage implements OnInit {
       this.loading.dismiss().then(()=>{
         this.hide=true;
       });
+    }).catch(error =>{
+      console.log(error.error);
     });
   }
 
