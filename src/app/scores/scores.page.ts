@@ -119,7 +119,7 @@ export class ScoresPage implements OnInit {
       if (this.temp.length === this.firstdata.length) {
         this.disabled = true;
       }
-    }, 1000);
+    }, 500);
   }
 
   addMoreItems() {
@@ -145,12 +145,12 @@ export class ScoresPage implements OnInit {
       this.comicon = "arrow-round-Down";
       this.comSort();
       console.log(this.comflag);
-      this.content.scrollToTop(1500);
+      this.content.scrollToTop(500);
     } else if (this.comicon === "arrow-round-Down") {
       this.comicon = "arrow-round-up";
       this.comSort();
       console.log(this.comflag);
-      this.content.scrollToTop(1500);
+      this.content.scrollToTop(500);
     }
   }
 
@@ -164,13 +164,13 @@ export class ScoresPage implements OnInit {
       this.scoreicon = "arrow-round-Down";
       this.scoreSort();
       console.log(this.scoreflag);
-      this.content.scrollToTop(1500);
+      this.content.scrollToTop(500);
     }else if(this.scoreicon === "arrow-round-Down")
     {
       this.scoreicon = "arrow-round-up";
       this.scoreSort();
       console.log(this.scoreflag);
-      this.content.scrollToTop(1500);
+      this.content.scrollToTop(500);
     }
   }
 
