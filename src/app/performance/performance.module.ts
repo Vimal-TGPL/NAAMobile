@@ -18,6 +18,7 @@ const routes: Routes = [
       { path: 'japan', loadChildren: '../japan/japan.module#JapanPageModule' },
       { path: 'europe', loadChildren: '../europe/europe.module#EuropePageModule' },
       { path: 'all', loadChildren: '../all/all.module#AllPageModule' },
+      { path: 'uk', loadChildren: '../uk/uk.module#UkPageModule' }
     ]
   },
   {
