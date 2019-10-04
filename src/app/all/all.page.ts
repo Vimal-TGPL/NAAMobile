@@ -186,7 +186,6 @@ export class AllPage implements OnInit {
     })
     this.y2009 = this.y2009 * 100;
     this.y2009 = this.roundValue(this.y2009);
-    // this.value = this.value.toFixed(2);
     var temp = JSON.stringify(this.desc);
     var sm = "SM";
     var replaceText = "Index" + sm.sup();
