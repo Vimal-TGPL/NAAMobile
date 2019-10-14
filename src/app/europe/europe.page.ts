@@ -59,7 +59,7 @@ export class EuropePage implements OnInit{
       this.httpnative.get(this.APIUrl,{},{}).then((data)=>{
         this.somedata = JSON.parse(data.data);
         for(let data of this.somedata){
-          if(JSON.stringify(data.indexName).indexOf("UK")!== -1)
+          if(JSON.stringify(data.indexName).indexOf("Europe")!== -1)
           {
             this.europe[this.count] = data.indexName;
             this.count = this.count+1;
