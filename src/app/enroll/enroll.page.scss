@@ -43,10 +43,14 @@ ion-item {
 
 .card{
     background-color: white;
-    padding: 5%;
-    margin-left: 5%;
-    margin-right: 7%;
-    padding: 7%;
+    padding-left: 5%;
+    padding-right: 7%;
+    width: 300px;
+    max-width: 500px;
+    //margin-left: 5%;
+   // margin-right: 7%;
+    //padding: 7%;
+
 }
 
 // input[type=number]::-webkit-inner-spin-button, 
