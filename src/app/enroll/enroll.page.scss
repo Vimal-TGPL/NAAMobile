@@ -1,5 +1,7 @@
-ion-content.background{
-    --ion-background-color: #2b468f;
+.background{
+    background-color: #2b468f;
+    height: 100%;
+    width: 100%;
 }
 
 .h1-formate{
@@ -10,22 +12,53 @@ ion-content.background{
 
 .p-formate{
     font-weight: bold;
-    color: ghostwhite;
+    size: 30px;
+    color: #2b468f;
 }
 .div-formate{
    padding: 20px;
 }
 
 ion-item {
-    // --highlight-color-focused: red;
-    --border-color:white;
+     --highlight-color-focused: red;
+    --border-color:rgb(0, 0, 0);
 //    padding-left: 15px;
 //    padding-right: 15px;
-    --padding-end:15px;
+   // --padding-end:15px;
 }
 
-.ion-label{
-    --label-md-text-color-focused:red;
-    
+// .ion-label{
+//     --label-md-text-color-focused:red;
+// }
+
+.div1{
+    background-color: #2b468f;
+    width: 100%;
+    padding-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+.card{
+    background-color: white;
+    padding: 5%;
+    margin-left: 5%;
+    margin-right: 7%;
+    padding: 7%;
+}
+
+// input[type=number]::-webkit-inner-spin-button, 
+// input[type=number]::-webkit-outer-spin-button { 
+//     -webkit-appearance: none; 
+//     margin: 0; 
+// }
+// input[type=number] {
+//     -moz-appearance:textfield;
+// }
+
+.regBtn{
+  text-align: center;
+  margin-top: 5%;
+}
