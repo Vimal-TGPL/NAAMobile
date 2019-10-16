@@ -1,40 +1,54 @@
 <ion-content>
-  <div class="background">
-  <div class="div1">
-      <ion-img src="assets/logo.png"></ion-img>  
-  </div>
-  <!-- <h1 align='center' class="h1-formate" >Welcome</h1>-->
-  
-  <div class="div-formate">
-    <ion-card class="card">
-        <h1 align='center' class="p-formate">CREATE ACCOUNT</h1> 
-        <ion-item class="ion-margin-top">
-            <ion-label  position="floating" color="#000000" class="ion-label">First Name <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input required color="#000000" inputmode='text' maxlength=30></ion-input>
-        </ion-item>
-        <ion-item class="ion-margin-top">
-            <ion-label position="floating" color="#000000" class="ion-label">Last Name <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input color="#000000" inputmode='text' maxlength=30></ion-input>
-        </ion-item>
-        <ion-item class="ion-margin-top">
-            <ion-label position="floating" color="#000000" class="ion-label">Mobile Number <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input color="#000000" inputmode='number' type="number" maxlength=30 class="numberInput"></ion-input>
-        </ion-item>
-        <ion-item class="ion-margin-top">
-            <ion-label position="floating" color="#000000" class="ion-label">Password <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input color="#000000" inputmode='password' type="password" maxlength=30></ion-input>
-        </ion-item>
-        <div class="regBtn">
-            <ion-button shape="round" class="btn" (click)="onClick()">
-                Register
-              </ion-button>
-        </div>
-    </ion-card>
-  </div>
-  <div class="footerdiv">
-    <p class="footerstyle">© 2019 New Age Alpha, LLC. All Rights Reserved.<br>
-      Get Paid For The Risks You Take, New Age Alpha and Human Factor are all trademarks of New Age Alpha, LLC</p>
-</div>
-</div>
+    <div class="background">
+        <div>
+            <div class="div1">
+                <ion-img src="assets/logo.png"></ion-img>
+            </div>
+            <!-- <h1 align='center' class="h1-formate" >Welcome</h1>-->
 
+            <div class="div-formate">
+                <ion-card class="card">
+                    <h1 align='center' class="p-formate">CREATE ACCOUNT</h1>
+                    <ion-item class="ion-margin-top">
+                        <ion-label position="floating" color="#000000" class="ion-label">First Name <ion-text
+                                color="danger">*</ion-text>
+                        </ion-label>
+                        <ion-input required color="#000000" inputmode='text' maxlength=30></ion-input>
+                    </ion-item>
+                    <ion-item class="ion-margin-top">
+                        <ion-label position="floating" color="#000000" class="ion-label">Last Name <ion-text
+                                color="danger">
+                                *</ion-text>
+                        </ion-label>
+                        <ion-input color="#000000" inputmode='text' maxlength=30></ion-input>
+                    </ion-item>
+                    <ion-item class="ion-margin-top">
+                        <ion-label position="floating" color="#000000" class="ion-label">Mobile Number <ion-text
+                                color="danger">*</ion-text>
+                        </ion-label>
+                        <ion-input color="#000000" inputmode='number' type="number" maxlength=30 class="numberInput">
+                        </ion-input>
+                    </ion-item>
+                    <ion-item class="ion-margin-top">
+                        <ion-label position="floating" color="#000000" class="ion-label">Password <ion-text
+                                color="danger">*
+                            </ion-text>
+                        </ion-label>
+                        <ion-input color="#000000" inputmode='password' type="password" maxlength=30></ion-input>
+                    </ion-item>
+                    <div class="regBtn">
+                        <ion-button shape="round" class="btn" (click)="onClick()">
+                            Register
+                        </ion-button>
+                    </div>
+                </ion-card>
+            </div>
+            <div class="footerdiv">
+                <p class="footerstyle">© 2019 New Age Alpha, LLC. All Rights Reserved.<br>
+                    Get Paid For The Risks You Take, New Age Alpha and Human Factor are all trademarks of New Age Alpha,
+                    LLC
+                </p>
+            </div>
+        </div>
+    </div>
 </ion-content>

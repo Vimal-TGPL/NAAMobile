@@ -41,13 +41,13 @@ ion-item {
 
 .card{
     background-color: white;
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-left: 7%;
+    padding-right: 7%;
     padding-top: 2%;
     padding-bottom: 3%;
     margin-top: 7%;
     min-width: 500px;
-    max-width: 1000px
+    max-width: 1000px;
 }
 
 .regBtn{
@@ -69,4 +69,11 @@ ion-item {
     color: #cdcdcd;
     line-height: 18px;
     display: inline-block;
+}
+
+.outerdiv{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
