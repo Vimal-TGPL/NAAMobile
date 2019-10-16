@@ -16,26 +16,18 @@
 }
 
 .p-formate{
-    // font-weight: bold;
-    // size: 30px;
     color: #2b468f;
 }
 .div-formate{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 ion-item {
      --highlight-color-focused: red;
     --border-color:rgb(0, 0, 0);
-//    padding-left: 15px;
-//    padding-right: 15px;
-   // --padding-end:15px;
 }
-
-// .ion-label{
-//     --label-md-text-color-focused:red;
-// }
 
 .div1{
     background-color: #2b468f;
@@ -45,7 +37,6 @@ ion-item {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // min-width: 100%;
 }
 
 .card{
@@ -57,24 +48,13 @@ ion-item {
     margin-top: 7%;
     min-width: 500px;
     max-width: 1000px
-    //margin-left: 5%;
-   // margin-right: 7%;
-    //padding: 7%;
 }
-
-// input[type=number]::-webkit-inner-spin-button, 
-// input[type=number]::-webkit-outer-spin-button { 
-//     -webkit-appearance: none; 
-//     margin: 0; 
-// }
-// input[type=number] {
-//     -moz-appearance:textfield;
-// }
 
 .regBtn{
   text-align: center;
   margin-top: 10%;
 }
+
 .btn{
     width: 50%;
 }
@@ -83,6 +63,7 @@ ion-item {
     bottom: 0;
     text-align: center;
 }
+
 .footerstyle{
     font-size: 11px;
     color: #cdcdcd;
