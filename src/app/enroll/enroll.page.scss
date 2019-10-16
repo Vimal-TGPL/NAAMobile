@@ -1,7 +1,12 @@
 .background{
     background-color: #2b468f;
-    height: 100%;
+    // height: 100%;
     width: 100%;
+    min-height: 100%;
+}
+
+.back{
+    background-color: #2b468f;
 }
 
 .h1-formate{
@@ -40,6 +45,7 @@ ion-item {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    // min-width: 100%;
 }
 
 .card{
@@ -71,4 +77,15 @@ ion-item {
 }
 .btn{
     width: 50%;
+}
+
+.footerdiv{
+    bottom: 0;
+    text-align: center;
+}
+.footerstyle{
+    font-size: 11px;
+    color: #cdcdcd;
+    line-height: 18px;
+    display: inline-block;
 }
