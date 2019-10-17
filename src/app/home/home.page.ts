@@ -54,7 +54,6 @@ export class HomePage {
   }
 
   auth_nav() {
-   // console.log("from home");
     this.router.navigateByUrl('/auth');
 
   }
