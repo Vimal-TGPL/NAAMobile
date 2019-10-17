@@ -17,7 +17,7 @@ export class HomePage {
   splash = true;
   rootPage: any = HomePage;
   public counter = 0;
-  url='https://demo-alpha2.newagealpha.com/';
+  url='https://www.newagealpha.com';
   //url='https://api.newagealpha.com/';
   target = '_blank';
   connected : Subscription;
