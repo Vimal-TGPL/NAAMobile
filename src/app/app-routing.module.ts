@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'landing', loadChildren: './landing/landing.module#LandingPageModule'},
   { path: 'performance', loadChildren: './performance/performance.module#PerformancePageModule' },
   { path: 'scores', loadChildren: './scores/scores.module#ScoresPageModule' },
-  { path: 'modal/:comval/:indexval', loadChildren: './modal/modal.module#ModalPageModule'}
+  { path: 'modal/:comval/:indexval', loadChildren: './modal/modal.module#ModalPageModule'},  { path: 'test', loadChildren: './test/test.module#TestPageModule' }
+
 ];
 
 @NgModule({

@@ -51,4 +51,8 @@ export class LandingPage implements OnInit {
         })
   }
 
+  onclick(){
+    this.router.navigateByUrl('/test');
+  }
+
 }
