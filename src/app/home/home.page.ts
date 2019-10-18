@@ -5,7 +5,6 @@ import { Toast } from '@ionic-native/toast/ngx';
 import { Router } from '@angular/router'
 import { NavController, MenuController} from '@ionic/angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
-import { Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -15,42 +14,42 @@ import { Subscription} from 'rxjs';
 export class HomePage {
 
   splash = true;
-  rootPage: any = HomePage;
-  public counter = 0;
+  //rootPage: any = HomePage;
+  //public counter = 0;
   //url='https://www.newagealpha.com';
-  url='https://www.google.com';
+  url = 'https://www.google.com';
   target = '_blank';
-  connected : Subscription;
-  disconnected : Subscription;
+  //connected : Subscription;
+  //disconnected : Subscription;
 
 
   constructor(private menuctrl:MenuController, private network: Network, private iab: InAppBrowser, private toast: Toast, private router: Router, private navCtrl: NavController, private screenorientation: ScreenOrientation) {
-    this.connected = this.network.onDisconnect().subscribe(() => {
-      this.toast.show(`Oops! You're Offline`, '3000', 'bottom').subscribe();
-    });
-
-    this.disconnected = this.network.onConnect().subscribe(() => {
-      setTimeout(() => {
-        this.toast.show(`Yaay! you're Online`, '3000', 'bottom').subscribe();
-      }, 2000);
-    });
+    // this.connected = this.network.onDisconnect().subscribe(() => {
+    //   this.toast.show(`Oops! You're Offline`, '3000', 'bottom').subscribe();
+    // });
+    // this.disconnected = this.network.onConnect().subscribe(() => {
+    //   setTimeout(() => {
+    //     this.toast.show(`Yaay! you're Online`, '3000', 'bottom').subscribe();
+    //   }, 2000);
+    // });
   }
 
   openUrl() {
-    var networkstate = this.network.type;
-    console.log(networkstate);
-    if (networkstate !== this.network.Connection.NONE) {
-      this.screenorientation.lock(this.screenorientation.ORIENTATIONS.LANDSCAPE);
-     const browser= this.iab.create(this.url,this.target);
-     browser.on('loadstop').subscribe(event =>{
-     });
-     browser.on('exit').subscribe(event =>{
-      this.screenorientation.unlock();
-     })
-    }
-    else {
-      this.toast.show(`Network Error`, '10000', 'bottom').subscribe();
-    }
+    // var networkstate = this.network.type;
+    // console.log(networkstate);
+    // if (networkstate !== this.network.Connection.NONE) {
+    //   this.screenorientation.lock(this.screenorientation.ORIENTATIONS.LANDSCAPE);
+    //  const browser= this.iab.create(this.url,this.target);
+    //  browser.on('loadstop').subscribe(event =>{
+    //  });
+    //  browser.on('exit').subscribe(event =>{
+    //   this.screenorientation.unlock();
+    //  })
+    // }
+    // else {
+    //   this.toast.show(`Network Error`, '10000', 'bottom').subscribe();
+    // }
+    this.iab.create(this.url,this.target);
   }
 
   auth_nav() {
@@ -63,7 +62,7 @@ export class HomePage {
   }
 
   ionViewWillLeave(){
-    this.connected.unsubscribe();
-    this.disconnected.unsubscribe();
+    //this.connected.unsubscribe();
+    //this.disconnected.unsubscribe();
   }
 }
