@@ -190,6 +190,9 @@ export class AllPage implements OnInit {
     var sm = "SM";
     var replaceText = "Index" + sm.sup();
     temp = temp.replace(/IndexSM/gm, replaceText);
+    var tm = "TM";
+    var replaceText = "RiskSelect" + tm.sup();
+    temp = temp.replace(/RiskSelectTM/gm, replaceText);
     this.desc = JSON.parse(temp);
   }
 

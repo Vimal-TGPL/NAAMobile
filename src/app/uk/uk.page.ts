@@ -60,7 +60,7 @@ export class UkPage implements OnInit {
       this.httpnative.get(this.APIUrl,{},{}).then((data)=>{
         this.somedata = JSON.parse(data.data);
         for(let data of this.somedata){
-          if(JSON.stringify(data.indexName).indexOf(" UK ")!== -1)
+          if(JSON.stringify(data.indexName).indexOf("Alpha UK ")!== -1)
           {
             this.uk[this.count] = data.indexName;
             this.count = this.count+1;
@@ -91,6 +91,9 @@ export class UkPage implements OnInit {
       var sm = "SM";
       var replaceText = "Index"+sm.sup();
       temp = temp.replace(/IndexSM/gm,replaceText);
+      var tm = "TM";
+    var replaceText = "RiskSelect" + tm.sup();
+    temp = temp.replace(/RiskSelectTM/gm, replaceText);
       this.desc=JSON.parse(temp);
 
       console.log("before")

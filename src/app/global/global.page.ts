@@ -61,7 +61,7 @@ export class GlobalPage implements OnInit{
       this.httpnative.get(this.APIUrl,{},{}).then((data)=>{
         this.somedata = JSON.parse(data.data);
         for(let data of this.somedata){
-          if(JSON.stringify(data.indexName).indexOf("Global")!== -1)
+          if(JSON.stringify(data.indexName).indexOf("Developed")!== -1)
           {
             this.global[this.count] = data.indexName;
             this.count = this.count+1;
@@ -90,6 +90,9 @@ export class GlobalPage implements OnInit{
     var sm = "SM";
     var replaceText = "Index" + sm.sup();
     temp = temp.replace(/IndexSM/gm, replaceText);
+    var tm = "TM";
+    var replaceText = "RiskSelect" + tm.sup();
+    temp = temp.replace(/RiskSelectTM/gm, replaceText);
     this.desc = JSON.parse(temp);
 
     this.performancedetails = this.anotherdata.filter((item) => item.indexName === this.tem);
