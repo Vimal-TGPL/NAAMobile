@@ -169,7 +169,7 @@ export class LandingPage implements OnInit {
         .attr('class', 'arc')
         .attr('d', arc)
         .attr('stroke', 'none')
-        .attr('fill', function (d, i) { return 'url(#linearColors' + i + ')'; });
+        .attr('fill', function (d, i) { return 'url(/landing#linearColors' + i + ')'; });
 
 
     var tau = 2 * Math.PI;
