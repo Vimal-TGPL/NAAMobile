@@ -54,7 +54,7 @@ export class AuthenticationService {
     if (this.isTimerStarted) {
       this.bnIdle.stopTimer();
     }
-    this.router.navigate(['/auth']);
+    this.router.navigateByUrl('/auth');
   }
 
   startTimer() {
@@ -65,7 +65,7 @@ export class AuthenticationService {
     this.bnIdle.startWatching(60).subscribe((isTimedOut: boolean) => {
       if (isTimedOut) {
         console.log('session expired');
-        this.router.navigate(['/auth']);
+        this.router.navigateByUrl('/auth');
       }
     });
   }
