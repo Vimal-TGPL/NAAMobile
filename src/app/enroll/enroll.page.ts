@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./enroll.page.scss'],
 })
 export class EnrollPage implements OnInit {
+  check:boolean = false;
 
   constructor() { }
 
   ngOnInit() {
   }
+
+checkboxClick(){
+if(this.check === false){
+this.check = true;
+}else if(this.check === true){
+this.check = false;
+}
+}
 
 }

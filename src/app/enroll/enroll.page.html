@@ -17,14 +17,13 @@
                     </ion-item>
                     <ion-item class="ion-margin-top">
                         <ion-label position="floating" color="#000000" class="ion-label">Last Name <ion-text
-                                color="danger">
-                                *</ion-text>
+                                color="danger">*</ion-text>
                         </ion-label>
                         <ion-input color="#000000" inputmode='text' maxlength=30></ion-input>
                     </ion-item>
                     <ion-item class="ion-margin-top">
-                        <ion-label position="floating" color="#000000" class="ion-label">Email <ion-text color="danger">
-                                <ion-text>*</ion-text>
+                        <ion-label position="floating" color="#000000" class="ion-label">Email <ion-text 
+                            color="danger">*</ion-text>
                         </ion-label>
                         <ion-input color="#000000" inputmode='email' type="email" maxlength=30 class="numberInput">
                         </ion-input>
@@ -44,10 +43,11 @@
                             <ion-select-option value="Financial Institution">Financial Institution</ion-select-option>
                         </ion-select>
                     </ion-item>
-                    <!-- <ion-item>
-                        <ion-checkbox color=""></ion-checkbox>
-                        <ion-label>I agree to receive communications from New Age Alpha.<br>Full policy:https://www.newagealpha.com/GDPRprivacypolicy <ion-text color="danger">*</ion-text></ion-label>
-                    </ion-item> -->
+                    <div class="agreediv" (click)="checkboxClick()">
+                    <ion-checkbox class="agreecheckbox" [checked]="check" ></ion-checkbox>
+                    <span class="agreespan" >I agree to receive communications from New Age Alpha.<br>Full
+                        policy:https://www.newagealpha.com/GDPRprivacypolicy <ion-text color="danger">*</ion-text></span>
+                    </div>
                     <div class="regBtn">
                         <ion-button shape="round" class="btn" (click)="onClick()">
                             Sign up
