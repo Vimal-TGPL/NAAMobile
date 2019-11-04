@@ -297,10 +297,6 @@ export class LandingPage implements OnInit {
         .attr("fill", "#ccc")
         .attr("text-anchor", "start")
         .text("0%")
-
-
-
-
 }
 
   onclick(){
