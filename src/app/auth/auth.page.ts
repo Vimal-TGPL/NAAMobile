@@ -48,4 +48,8 @@ export class AuthPage  {
       await alert.present();
     }
   }
+
+  newAccClick(){
+    this.router.navigateByUrl('/enroll');
+  }
 }

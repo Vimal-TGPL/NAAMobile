@@ -23,10 +23,10 @@
                         <ion-input color="#000000" inputmode='text' maxlength=30></ion-input>
                     </ion-item>
                     <ion-item class="ion-margin-top">
-                        <ion-label position="floating" color="#000000" class="ion-label">Mobile Number <ion-text
+                        <ion-label position="floating" color="#000000" class="ion-label">Email <ion-text
                                 color="danger">*</ion-text>
                         </ion-label>
-                        <ion-input color="#000000" inputmode='number' type="number" maxlength=30 class="numberInput">
+                        <ion-input color="#000000" inputmode='email' type="email" maxlength=30 class="numberInput">
                         </ion-input>
                     </ion-item>
                     <ion-item class="ion-margin-top">
@@ -36,6 +36,14 @@
                         </ion-label>
                         <ion-input color="#000000" inputmode='password' type="password" maxlength=30></ion-input>
                     </ion-item>
+                    <ion-item class="ion-margin-top">
+                        <ion-label>I am a...<ion-text color="danger">*</ion-text></ion-label>
+                        <ion-select value="notifications" interface="action-sheet">
+                          <ion-select-option value="Individual Investor">Individual Investor</ion-select-option>
+                          <ion-select-option value="Financial Advisor">Financial Advisor</ion-select-option>
+                          <ion-select-option value="Financial Institution">Financial Institution</ion-select-option>
+                        </ion-select>
+                      </ion-item>
                     <div class="regBtn">
                         <ion-button shape="round" class="btn" (click)="onClick()">
                             Register
