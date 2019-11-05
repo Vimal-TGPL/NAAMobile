@@ -13,43 +13,54 @@
                         <ion-label position="floating" color="#000000" class="ion-label">First Name 
                             <ion-text color="danger">*</ion-text>
                         </ion-label>
-                        <ion-input required color="#000000" inputmode='text' formControlName="FirstName" maxlength=30></ion-input>
+                        <ion-input required color="#000000" inputmode='text' formControlName="FirstName" maxlength=50></ion-input>
                     </ion-item>
+                    <p class="valitation-error" *ngIf="registerForm.controls.FirstName.hasError('required') && registerForm.controls.FirstName.dirty">First Name is required</p>
+                    <p class="valitation-error" *ngIf="registerForm.controls.FirstName.hasError('minlength') && registerForm.controls.FirstName.dirty">Use 2 or more characters</p>
+                    <p class="valitation-error" *ngIf="registerForm.controls.FirstName.hasError('pattern') && registerForm.controls.FirstName.dirty">First Name cannot contain numbers and special characters</p>
                     <ion-item class="ion-margin-top">
                         <ion-label position="floating" color="#000000" class="ion-label">Last Name 
                             <ion-text color="danger">*</ion-text>
                         </ion-label>
-                        <ion-input required color="#000000" inputmode='text' formControlName="LastName" maxlength=30></ion-input>
+                        <ion-input required color="#000000" inputmode='text' formControlName="LastName" maxlength=50></ion-input>
                     </ion-item>
+                    <p class="valitation-error" *ngIf="registerForm.controls.LastName.hasError('required') && registerForm.controls.LastName.dirty">Last Name is required</p>
+                    <p class="valitation-error" *ngIf="registerForm.controls.LastName.hasError('pattern') && registerForm.controls.LastName.dirty">Last Name cannot contain numbers and special characters</p>
                     <ion-item class="ion-margin-top">
                         <ion-label position="floating" color="#000000" class="ion-label">Email 
                             <ion-text color="danger">*</ion-text>
                         </ion-label>
-                        <ion-input color="#000000" inputmode='email' type="email" formControlName="Email" maxlength=30 class="numberInput">
+                        <ion-input color="#000000" inputmode='email' type="email" formControlName="Email" maxlength=100 class="numberInput">
                         </ion-input>
                     </ion-item>
+                    <p class="valitation-error" *ngIf="registerForm.controls.Email.hasError('required') && registerForm.controls.Email.dirty">Email is required</p>
+                    <p class="valitation-error" *ngIf="registerForm.controls.Email.hasError('email') && registerForm.controls.Email.dirty">Please enter valid email address</p>
+                    <!-- <p class="valitation-error" *ngIf="registerForm.controls.Email.hasError('maxlength') && registerForm.controls.Email.dirty">You have more than 100 characters</p> -->
                     <ion-item class="ion-margin-top">
                         <ion-label position="floating" color="#000000" class="ion-label">Password 
                             <ion-text color="danger">*</ion-text>
                         </ion-label>
-                        <ion-input color="#000000" inputmode='password' type="password" formControlName="Password" maxlength=30></ion-input>
+                        <ion-input color="#000000" inputmode='password' type="password" formControlName="Password" maxlength=50></ion-input>
                     </ion-item>
+                    <p class="valitation-error" *ngIf="registerForm.controls.Password.hasError('required') && registerForm.controls.Password.dirty">Password is required</p>
+                    <p class="valitation-error" *ngIf="registerForm.controls.Password.hasError('minlength') && registerForm.controls.Password.dirty">Use 6 or more characters</p>
                     <ion-item class="ion-margin-top">
                         <ion-label position="floating">I am a...<ion-text color="danger">*</ion-text>
                         </ion-label>
-                        <ion-select value="notifications" formControlName="selectFormControl" interface="action-sheet">
+                        <ion-select required value="notifications" formControlName="selectFormControl" interface="action-sheet">
                             <ion-select-option value="Individual Investor">Individual Investor</ion-select-option>
                             <ion-select-option value="Financial Advisor">Financial Advisor</ion-select-option>
                             <ion-select-option value="Financial Institution">Financial Institution</ion-select-option>
                         </ion-select>
                     </ion-item>
+                    <p class="valitation-error" *ngIf="registerForm.controls.selectFormControl.hasError('required') && registerForm.controls.selectFormControl.dirty">Please select who you are?</p>
                     <div class="agreediv" (click)="checkboxClick()">
                     <ion-checkbox class="agreecheckbox" formControlName="Checkbox" [checked]="check" ></ion-checkbox>
                     <span class="agreespan" >I agree to receive communications from New Age Alpha.<br>Full
                         policy:https://www.newagealpha.com/GDPRprivacypolicy <ion-text color="danger">*</ion-text></span>
                     </div>
                     <div class="regBtn">
-                        <ion-button shape="round" class="btn" (click)="postRegister()">
+                        <ion-button shape="round" class="btn" (click)="postRegister()" [disabled]="!registerForm.valid && !check">
                             Sign up
                         </ion-button>
                     </div>
