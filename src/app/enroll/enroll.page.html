@@ -5,56 +5,57 @@
                 <ion-img src="assets/logo.png"></ion-img>
             </div>
             <!-- <h1 align='center' class="h1-formate" >Welcome</h1>-->
-
+            <form [formGroup]="registerForm">
             <div class="div-formate">
                 <ion-card class="card">
                     <h1 align='center' class="p-formate">CREATE ACCOUNT</h1>
                     <ion-item class="ion-margin-top">
-                        <ion-label position="floating" color="#000000" class="ion-label">First Name <ion-text
-                                color="danger">*</ion-text>
+                        <ion-label position="floating" color="#000000" class="ion-label">First Name 
+                            <ion-text color="danger">*</ion-text>
                         </ion-label>
-                        <ion-input required color="#000000" inputmode='text' maxlength=30></ion-input>
+                        <ion-input required color="#000000" inputmode='text' formControlName="FirstName" maxlength=30></ion-input>
                     </ion-item>
                     <ion-item class="ion-margin-top">
-                        <ion-label position="floating" color="#000000" class="ion-label">Last Name <ion-text
-                                color="danger">*</ion-text>
+                        <ion-label position="floating" color="#000000" class="ion-label">Last Name 
+                            <ion-text color="danger">*</ion-text>
                         </ion-label>
-                        <ion-input color="#000000" inputmode='text' maxlength=30></ion-input>
+                        <ion-input required color="#000000" inputmode='text' formControlName="LastName" maxlength=30></ion-input>
                     </ion-item>
                     <ion-item class="ion-margin-top">
-                        <ion-label position="floating" color="#000000" class="ion-label">Email <ion-text 
-                            color="danger">*</ion-text>
+                        <ion-label position="floating" color="#000000" class="ion-label">Email 
+                            <ion-text color="danger">*</ion-text>
                         </ion-label>
-                        <ion-input color="#000000" inputmode='email' type="email" maxlength=30 class="numberInput">
+                        <ion-input color="#000000" inputmode='email' type="email" formControlName="Email" maxlength=30 class="numberInput">
                         </ion-input>
                     </ion-item>
                     <ion-item class="ion-margin-top">
-                        <ion-label position="floating" color="#000000" class="ion-label">Password <ion-text
-                                color="danger">*</ion-text>
+                        <ion-label position="floating" color="#000000" class="ion-label">Password 
+                            <ion-text color="danger">*</ion-text>
                         </ion-label>
-                        <ion-input color="#000000" inputmode='password' type="password" maxlength=30></ion-input>
+                        <ion-input color="#000000" inputmode='password' type="password" formControlName="Password" maxlength=30></ion-input>
                     </ion-item>
                     <ion-item class="ion-margin-top">
                         <ion-label position="floating">I am a...<ion-text color="danger">*</ion-text>
                         </ion-label>
-                        <ion-select value="notifications" interface="action-sheet">
+                        <ion-select value="notifications" formControlName="selectFormControl" interface="action-sheet">
                             <ion-select-option value="Individual Investor">Individual Investor</ion-select-option>
                             <ion-select-option value="Financial Advisor">Financial Advisor</ion-select-option>
                             <ion-select-option value="Financial Institution">Financial Institution</ion-select-option>
                         </ion-select>
                     </ion-item>
                     <div class="agreediv" (click)="checkboxClick()">
-                    <ion-checkbox class="agreecheckbox" [checked]="check" ></ion-checkbox>
+                    <ion-checkbox class="agreecheckbox" formControlName="Checkbox" [checked]="check" ></ion-checkbox>
                     <span class="agreespan" >I agree to receive communications from New Age Alpha.<br>Full
                         policy:https://www.newagealpha.com/GDPRprivacypolicy <ion-text color="danger">*</ion-text></span>
                     </div>
                     <div class="regBtn">
-                        <ion-button shape="round" class="btn" (click)="onClick()">
+                        <ion-button shape="round" class="btn" (click)="postRegister()">
                             Sign up
                         </ion-button>
                     </div>
                 </ion-card>
             </div>
+        </form>
             <div class="footerdiv">
                 <p class="footerstyle">© 2019 New Age Alpha, LLC. All Rights Reserved.<br>
                     Get Paid For The Risks You Take, New Age Alpha and Human Factor are all trademarks of New Age Alpha,
