@@ -16,7 +16,7 @@ export class EnrollPage implements OnInit {
   check:boolean = false;
   registerForm: FormGroup;
 
-  constructor(public userService: UserService,public alertctrl : AlertController, public http: HttpClient, public headers : HttpHeaders) { }
+  constructor(public userService: UserService,public alertctrl : AlertController, public http: HttpClient) { }
 
   ngOnInit() {
    // const Regex_email = "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$";
@@ -89,7 +89,7 @@ postRegister(){
     // )
     
     console.log(postData);
-    var httpOptions = {
+    const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
