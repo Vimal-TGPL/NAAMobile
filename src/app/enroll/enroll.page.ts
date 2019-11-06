@@ -65,6 +65,11 @@ postRegister(){
       // "isEmailVerified": ""
     }
 
+    // let postData = {
+    //   "name": "vimal",
+    //   "job": "boss"
+    // }
+
     // console.log(formDetails);
     // this.userService.register(formDetails)
     // .pipe(first())
@@ -100,6 +105,12 @@ postRegister(){
     },error =>{
       console.log(error);
     })
+    // this.http.post("https://reqres.in/api/users",postData,httpOptions)
+    // .subscribe(data=>{
+    //   console.log(data);
+    // },error =>{
+    //   console.log(error);
+    // })
   }
 }
 
@@ -107,7 +118,4 @@ postRegister(){
 //   return this.registerForm.controls[controlName].hasError(errorName);
 // }
 
-async presentAlert(){
-
-}
 }
