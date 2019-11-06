@@ -97,9 +97,7 @@
       "cordova-plugin-network-information": {},
       "cordova-plugin-x-toast": {},
       "cordova-plugin-screen-orientation": {},
-      "cordova-plugin-advanced-http": {
-        "OKHTTP_VERSION": "3.10.0"
-      },
+      "cordova-plugin-advanced-http": {},
       "cordova-plugin-ionic-webview": {}
     },
     "platforms": [
