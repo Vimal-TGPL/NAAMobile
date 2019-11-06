@@ -97,7 +97,11 @@ postRegister(){
     console.log(postData);
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json'
+        
+        'Content-Type': 'application/json',
+        'Accept':'application/json',
+        'Access-Control-Allow-Methods': 'POST,GET,OPTIONS,PUT',
+        'Access-Control-Allow-Origin': '*'
       })
     };
     this.http.post("https://demo-api.newagealpha.com/api/Users/register",postData,httpOptions)
