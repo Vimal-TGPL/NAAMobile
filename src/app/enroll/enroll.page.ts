@@ -6,6 +6,7 @@ import {Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AlertController } from '@ionic/angular';
 import { HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-enroll',
@@ -100,10 +101,22 @@ postRegister(){
       })
     };
     this.http.post("https://demo-api.newagealpha.com/api/Users/register",postData,httpOptions)
-    .subscribe(data=>{
+    .subscribe(async data=>{
       console.log(data);
-    },error =>{
+      const alert= await this.alertctrl.create({
+        header:'Message',
+        message:'mail sent',
+        buttons: ['OK']
+      });
+      await alert.present();
+    },async error =>{
       console.log(error);
+      const alert= await this.alertctrl.create({
+        header:'Message',
+        message:error.message,
+        buttons: ['OK']
+      });
+      await alert.present();
     })
     // this.http.post("https://reqres.in/api/users",postData,httpOptions)
     // .subscribe(data=>{
