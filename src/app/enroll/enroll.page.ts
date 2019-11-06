@@ -130,9 +130,10 @@ postRegister(){
     this.http.post("https://demo-api.newagealpha.com/api/Users/register",postData,{'Content-Type': 'application/json'}).then(data=>{
       console.log(data);
     }).catch(error=>{
-      console.log(error.status);
-    console.log(error.error); // error message as string
-    console.log(error.headers)
+    //   console.log(error.status);
+    // console.log(error.error); // error message as string
+    // console.log(error.headers)
+    console.log(error);
     })
   }
 }
