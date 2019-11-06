@@ -5,8 +5,8 @@ import { AuthenticationService } from '../services/authentication.service';
 import {Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AlertController } from '@ionic/angular';
-//import { HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
-import { HTTP } from '@ionic-native/http/ngx';
+import { HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
+// import { HTTP } from '@ionic-native/http/ngx';
 import { async } from '@angular/core/testing';
 
 @Component({
@@ -18,7 +18,7 @@ export class EnrollPage implements OnInit {
   check:boolean = false;
   registerForm: FormGroup;
 
-  constructor(public userService: UserService,public alertctrl : AlertController, public http: HTTP) { }
+  constructor(public userService: UserService,public alertctrl : AlertController, public http: HttpClient) { }
 
   ngOnInit() {
    // const Regex_email = "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$";
@@ -56,21 +56,21 @@ postRegister(){
     //   Token:""
     // }
 
-    let postData = {
-      "firstName": this.registerForm.controls["FirstName"].value,
-      "lastName": this.registerForm.controls["LastName"].value,
-      "username": this.registerForm.controls["Email"].value,
-      "password": this.registerForm.controls["Password"].value,
-      "investorType": this.registerForm.controls["selectFormControl"].value,
-      "email": this.registerForm.controls["Email"].value,
-      "isPolicyAccepted": this.registerForm.controls["Checkbox"].value==true?'Y':'N',
-      // "isEmailVerified": ""
-    }
-
     // let postData = {
-    //   "name": "vimal",
-    //   "job": "boss"
+    //   "firstName": this.registerForm.controls["FirstName"].value,
+    //   "lastName": this.registerForm.controls["LastName"].value,
+    //   "username": this.registerForm.controls["Email"].value,
+    //   "password": this.registerForm.controls["Password"].value,
+    //   "investorType": this.registerForm.controls["selectFormControl"].value,
+    //   "email": this.registerForm.controls["Email"].value,
+    //   "isPolicyAccepted": this.registerForm.controls["Checkbox"].value==true?'Y':'N',
+    //   "isEmailVerified": "N"
     // }
+
+    let postData = {
+      "name": "vimal",
+      "job": "boss"
+    }
 
     // console.log(formDetails);
     // this.userService.register(formDetails)
@@ -95,12 +95,12 @@ postRegister(){
     //   }
     // )
     
-    // console.log(postData);
-    // const httpOptions = {
-    //   headers: new HttpHeaders({
-    //     'Content-Type': 'application/json'
-    //   })
-    // };
+    console.log(postData);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
     // this.http.post("https://demo-api.newagealpha.com/api/Users/register",postData,httpOptions)
     // .subscribe(async data=>{
     //   console.log(data);
@@ -119,21 +119,35 @@ postRegister(){
     //   });
     //   await alert.present();
     // })
-    // this.http.post("https://reqres.in/api/users",postData,httpOptions)
-    // .subscribe(data=>{
-    //   console.log(data);
-    // },error =>{
-    //   console.log(error);
-    // })
-
-    console.log(postData);
-    this.http.post("https://demo-api.newagealpha.com/api/Users/register",postData,{'Content-Type': 'application/json'}).then(data=>{
+    this.http.post("https://reqres.in/api/users",postData,httpOptions)
+    .subscribe(async data=>{
       console.log(data);
-    }).catch(error=>{
-      console.log(error.status);
-    console.log(error.error); // error message as string
-    console.log(error.headers)
+      const alert= await this.alertctrl.create({
+            header:'Message',
+            message: 'sucess',
+            buttons: ['OK']
+          });
+          await alert.present();
+    },async error =>{
+      console.log(error);
+      const alert= await this.alertctrl.create({
+            header:'Message',
+            message:error.message,
+            buttons: ['OK']
+          });
+          await alert.present();
     })
+
+    // //let header = this.http.setHeader('https://demo-api.newagealpha.com/api/Users/register','Content-Type','application/json');
+    // console.log(postData);
+    // this.http.post("https://demo-api.newagealpha.com/api/Users/register",postData,{'Content-Type':'application/json'}).then(data=>{
+    //   console.log(data);
+    // }).catch(error=>{
+    // //   console.log(error.status);
+    // // console.log(error.error); // error message as string
+    // // console.log(error.headers)
+    // console.log(error);
+    // })
   }
 }
 
