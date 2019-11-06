@@ -119,24 +119,25 @@ postRegister(){
     //   });
     //   await alert.present();
     // })
-    this.http.post("https://reqres.in/api/users",postData,httpOptions)
-    .subscribe(async data=>{
-      console.log(data);
-      const alert= await this.alertctrl.create({
-            header:'Message',
-            message: 'sucess',
-            buttons: ['OK']
-          });
-          await alert.present();
-    },async error =>{
-      console.log(error);
-      const alert= await this.alertctrl.create({
-            header:'Message',
-            message:error.message,
-            buttons: ['OK']
-          });
-          await alert.present();
-    })
+    
+    // this.http.post("https://reqres.in/api/users",postData,httpOptions)
+    // .subscribe(async data=>{
+    //   console.log(data);
+    //   const alert= await this.alertctrl.create({
+    //         header:'Message',
+    //         message: 'sucess',
+    //         buttons: ['OK']
+    //       });
+    //       await alert.present();
+    // },async error =>{
+    //   console.log(error);
+    //   const alert= await this.alertctrl.create({
+    //         header:'Message',
+    //         message:error.message,
+    //         buttons: ['OK']
+    //       });
+    //       await alert.present();
+    // })
 
     // //let header = this.http.setHeader('https://demo-api.newagealpha.com/api/Users/register','Content-Type','application/json');
     // console.log(postData);
