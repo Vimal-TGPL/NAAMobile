@@ -56,21 +56,21 @@ postRegister(){
     //   Token:""
     // }
 
-    // let postData = {
-    //   "firstName": this.registerForm.controls["FirstName"].value,
-    //   "lastName": this.registerForm.controls["LastName"].value,
-    //   "username": this.registerForm.controls["Email"].value,
-    //   "password": this.registerForm.controls["Password"].value,
-    //   "investorType": this.registerForm.controls["selectFormControl"].value,
-    //   "email": this.registerForm.controls["Email"].value,
-    //   "isPolicyAccepted": this.registerForm.controls["Checkbox"].value==true?'Y':'N',
-    //   "isEmailVerified": "N"
-    // }
-
     let postData = {
-      "name": "vimal",
-      "job": "boss"
+      "firstName": this.registerForm.controls["FirstName"].value,
+      "lastName": this.registerForm.controls["LastName"].value,
+      "username": this.registerForm.controls["Email"].value,
+      "password": this.registerForm.controls["Password"].value,
+      "investorType": this.registerForm.controls["selectFormControl"].value,
+      "email": this.registerForm.controls["Email"].value,
+      "isPolicyAccepted": this.registerForm.controls["Checkbox"].value==true?'Y':'N',
+     // "isEmailVerified": "N"
     }
+
+    // let postData = {
+    //   "name": "vimal",
+    //   "job": "boss"
+    // }
 
     // console.log(formDetails);
     // this.userService.register(formDetails)
@@ -101,43 +101,43 @@ postRegister(){
         'Content-Type': 'application/json'
       })
     };
-    // this.http.post("https://demo-api.newagealpha.com/api/Users/register",postData,httpOptions)
-    // .subscribe(async data=>{
-    //   console.log(data);
-    //   const alert= await this.alertctrl.create({
-    //     header:'Message',
-    //     message:'mail sent',
-    //     buttons: ['OK']
-    //   });
-    //   await alert.present();
-    // },async error =>{
-    //   console.log(error);
-    //   const alert= await this.alertctrl.create({
-    //     header:'Message',
-    //     message:error.message,
-    //     buttons: ['OK']
-    //   });
-    //   await alert.present();
-    // })
-
-    this.http.post("https://reqres.in/api/users",postData,httpOptions)
+    this.http.post("https://demo-api.newagealpha.com/api/Users/register",postData,httpOptions)
     .subscribe(async data=>{
       console.log(data);
       const alert= await this.alertctrl.create({
-            header:'Message',
-            message: 'sucess',
-            buttons: ['OK']
-          });
-          await alert.present();
+        header:'Message',
+        message:'mail sent',
+        buttons: ['OK']
+      });
+      await alert.present();
     },async error =>{
       console.log(error);
       const alert= await this.alertctrl.create({
-            header:'Message',
-            message:error.message,
-            buttons: ['OK']
-          });
-          await alert.present();
+        header:'Message',
+        message:error.message,
+        buttons: ['OK']
+      });
+      await alert.present();
     })
+
+    // this.http.post("https://reqres.in/api/users",postData,httpOptions)
+    // .subscribe(async data=>{
+    //   console.log(data);
+    //   const alert= await this.alertctrl.create({
+    //         header:'Message',
+    //         message: 'sucess',
+    //         buttons: ['OK']
+    //       });
+    //       await alert.present();
+    // },async error =>{
+    //   console.log(error);
+    //   const alert= await this.alertctrl.create({
+    //         header:'Message',
+    //         message:error.message,
+    //         buttons: ['OK']
+    //       });
+    //       await alert.present();
+    // })
 
     // //let header = this.http.setHeader('https://demo-api.newagealpha.com/api/Users/register','Content-Type','application/json');
     // console.log(postData);
