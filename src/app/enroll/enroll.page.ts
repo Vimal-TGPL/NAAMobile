@@ -16,7 +16,7 @@ import { Router } from '@angular/router'
   styleUrls: ['./enroll.page.scss'],
 })
 export class EnrollPage implements OnInit {
-  check:boolean = false;
+  check:boolean;
   registerForm: FormGroup;
 
   constructor(public userService: UserService,public alertctrl : AlertController, public http: HttpClient, private router:Router) { }
@@ -158,6 +158,12 @@ postRegister(){
 // }
 gotoLogin(){
   this.router.navigateByUrl('/auth');
+}
+
+onchange(e:any){
+  console.log(e.detail.checked);
+  console.log(this.registerForm.valid);
+  this.check=e.detail.checked;
 }
 
 }

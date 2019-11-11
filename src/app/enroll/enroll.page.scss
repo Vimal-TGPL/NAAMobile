@@ -52,7 +52,7 @@ ion-item {
 
 .regBtn{
   text-align: center;
-  margin-top: 10%;
+  margin-top: 1%;
 }
 
 .btn{
@@ -79,7 +79,8 @@ ion-item {
 }
 
 .agreecheckbox{
-float: left;
+// float: left;
+margin-top: 0px ;
 }
 
 .agreespan{
@@ -98,4 +99,10 @@ float: left;
 
 .loginbtn{
     text-align: center;
+}
+
+
+
+.checkBox{
+    border-bottom-width: 0px;
 }

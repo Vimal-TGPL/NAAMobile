@@ -54,13 +54,17 @@
                         </ion-select>
                     </ion-item>
                     <p class="valitation-error" *ngIf="registerForm.controls.selectFormControl.hasError('required') && registerForm.controls.selectFormControl.dirty">Please select who you are?</p>
-                    <div class="agreediv" (click)="checkboxClick()">
-                    <ion-checkbox class="agreecheckbox" formControlName="Checkbox" [checked]="check" ></ion-checkbox>
-                    <span class="agreespan" >I agree to receive communications from New Age Alpha.<br>Full
-                        policy:https://www.newagealpha.com/GDPRprivacypolicy <ion-text color="danger">*</ion-text></span>
+                    <div class="agreediv">
+                    <ion-list lines="none">
+                    <ion-item class="checkBox">
+                            <ion-checkbox class="agreecheckbox" id="chekBox" checked=false formControlName="Checkbox" (ionChange)="onchange($event)" ></ion-checkbox>
+                            <label for="chekBox" class="agreespan" >I agree to receive communications from New Age Alpha.<br>Full
+                                policy:https://www.newagealpha.com/GDPRprivacypolicy <ion-text color="danger">*</ion-text></label>
+                    </ion-item>
+                </ion-list>
                     </div>
                     <div class="regBtn">
-                        <ion-button shape="round" class="btn" (click)="postRegister()" [disabled]="!registerForm.valid && !check">
+                        <ion-button shape="round" class="btn" (click)="postRegister()" [disabled]="!registerForm.valid">
                             Sign up
                         </ion-button>
                     </div>
