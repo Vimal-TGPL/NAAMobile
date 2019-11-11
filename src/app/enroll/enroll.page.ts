@@ -65,7 +65,7 @@ postRegister(){
       "investorType": this.registerForm.controls["selectFormControl"].value,
       "email": this.registerForm.controls["Email"].value,
       "isPolicyAccepted": this.registerForm.controls["Checkbox"].value==true?'Y':'N',
-     // "isEmailVerified": "N"
+     //"isEmailVerified": "N"
     }
 
     // let postData = {
