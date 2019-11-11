@@ -8,6 +8,7 @@ import { AlertController } from '@ionic/angular';
 import { HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 // import { HTTP } from '@ionic-native/http/ngx';
 import { async } from '@angular/core/testing';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-enroll',
@@ -18,7 +19,7 @@ export class EnrollPage implements OnInit {
   check:boolean = false;
   registerForm: FormGroup;
 
-  constructor(public userService: UserService,public alertctrl : AlertController, public http: HttpClient) { }
+  constructor(public userService: UserService,public alertctrl : AlertController, public http: HttpClient, private router:Router) { }
 
   ngOnInit() {
    // const Regex_email = "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$";
@@ -155,5 +156,8 @@ postRegister(){
 // hasError = (controlName: string, errorName:string)=>{
 //   return this.registerForm.controls[controlName].hasError(errorName);
 // }
+gotoLogin(){
+  this.router.navigateByUrl('/auth');
+}
 
 }
