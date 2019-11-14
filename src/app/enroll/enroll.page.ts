@@ -6,9 +6,12 @@ import {Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AlertController } from '@ionic/angular';
 import { HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
-// import { HTTP } from '@ionic-native/http/ngx';
+import { HTTP } from '@ionic-native/http/ngx';
 import { async } from '@angular/core/testing';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+import 'rxjs/add/operator/map'
+
+//import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-enroll',
@@ -19,7 +22,7 @@ export class EnrollPage implements OnInit {
   check:boolean;
   registerForm: FormGroup;
 
-  constructor(public userService: UserService,public alertctrl : AlertController, public http: HttpClient, private router:Router) { }
+  constructor(public userService: UserService,public alertctrl : AlertController, public http: HttpClient, private router:Router, public nativehttp: HTTP) { }
 
   ngOnInit() {
    // const Regex_email = "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$";
@@ -46,18 +49,7 @@ this.check = false;
 
 postRegister(){
   if(this.registerForm.valid){
-    // let formDetails: User = {
-    //   FirstName: this.registerForm.controls["FirstName"].value,
-    //   LastName: this.registerForm.controls["LastName"].value,
-    //   Username: this.registerForm.controls["Email"].value,
-    //   Password: this.registerForm.controls["Password"].value,
-    //   InvestorType: this.registerForm.controls["selectFormControl"].value,
-    //   Email: this.registerForm.controls["Email"].value,
-    //   IsPolicyAccepted: this.registerForm.controls["Checkbox"].value==true?'Y':'N',
-    //   Token:""
-    // }
-
-    let postData = {
+      let postData = {
       "firstName": this.registerForm.controls["FirstName"].value,
       "lastName": this.registerForm.controls["LastName"].value,
       "username": this.registerForm.controls["Email"].value,
@@ -65,97 +57,37 @@ postRegister(){
       "investorType": this.registerForm.controls["selectFormControl"].value,
       "email": this.registerForm.controls["Email"].value,
       "isPolicyAccepted": this.registerForm.controls["Checkbox"].value==true?'Y':'N',
-     //"isEmailVerified": "N"
+      "isEmailVerified": "N",
     }
 
-    // let postData = {
-    //   "name": "vimal",
-    //   "job": "boss"
-    // }
-
-    // console.log(formDetails);
-    // this.userService.register(formDetails)
-    // .pipe(first())
-    // .subscribe(
-    //    data =>{
-    //     console.log(data);
-    //     // const alert= await this.alertctrl.create({
-    //     //   message:'An Email has been sent to your email address',
-    //     //   buttons: ['OK']
-    //     // });
-    //     // await alert.present();
-    //     this.registerForm.reset();
-    //   },
-    //    error => {
-    //     console.log(error);
-    //     // const alert= await this.alertctrl.create({
-    //     //   message:error,
-    //     //   buttons: ['OK']
-    //     // });
-    //     // await alert.present();
-    //   }
-    // )
-    
     console.log(postData);
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-    this.http.post("https://demo-api.newagealpha.com/api/Users/register",postData,httpOptions)
-    .subscribe(async data=>{
-      console.log(data);
-      const alert= await this.alertctrl.create({
-        header:'Message',
-        message:'mail sent',
-        buttons: ['OK']
-      });
-      await alert.present();
-    },async error =>{
-      console.log(error);
-      const alert= await this.alertctrl.create({
-        header:'Message',
-        message:error.message,
-        buttons: ['OK']
-      });
-      await alert.present();
+    return this.http.post("https://demo-api.newagealpha.com/api/Users/register",postData,{
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }
     })
-
-    // this.http.post("https://reqres.in/api/users",postData,httpOptions)
-    // .subscribe(async data=>{
-    //   console.log(data);
-    //   const alert= await this.alertctrl.create({
-    //         header:'Message',
-    //         message: 'sucess',
-    //         buttons: ['OK']
-    //       });
-    //       await alert.present();
-    // },async error =>{
-    //   console.log(error);
-    //   const alert= await this.alertctrl.create({
-    //         header:'Message',
-    //         message:error.message,
-    //         buttons: ['OK']
-    //       });
-    //       await alert.present();
-    // })
-
-    // //let header = this.http.setHeader('https://demo-api.newagealpha.com/api/Users/register','Content-Type','application/json');
-    // console.log(postData);
-    // this.http.post("https://demo-api.newagealpha.com/api/Users/register",postData,{'Content-Type':'application/json'}).then(data=>{
-    //   console.log(data);
-    // }).catch(error=>{
-    // //   console.log(error.status);
-    // // console.log(error.error); // error message as string
-    // // console.log(error.headers)
-    // console.log(error);
-    // })
+    .map(response=>response)
+     .subscribe(async (data:any)=>{
+       console.log(data);
+       const alert= await this.alertctrl.create({
+         header:'Message',
+         message:'mail sent',
+         buttons: ['OK']
+       });
+       await alert.present();
+     },async error =>{
+       console.log(error);
+       const alert= await this.alertctrl.create({
+         header:'Message',
+         message:"error",
+         buttons: ['OK']
+       });
+       await alert.present();
+     })
   }
 }
 
-// hasError = (controlName: string, errorName:string)=>{
-//   return this.registerForm.controls[controlName].hasError(errorName);
-// }
 gotoLogin(){
   this.router.navigateByUrl('/auth');
 }
