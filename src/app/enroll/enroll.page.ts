@@ -6,7 +6,7 @@ import {Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 // import { first } from 'rxjs/operators';
 import { AlertController } from '@ionic/angular';
 import { HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
-// import { HTTP } from '@ionic-native/http/ngx';
+ import { HTTP } from '@ionic-native/http/ngx';
 // import { async } from '@angular/core/testing';
 import { Router } from '@angular/router'
 
@@ -56,7 +56,6 @@ postRegister(){
       "email": this.registerForm.controls["Email"].value,
       "isPolicyAccepted": this.registerForm.controls["Checkbox"].value==true?'Y':'N',
       "isEmailVerified": "N"
-      
     }
     
     console.log(postData);

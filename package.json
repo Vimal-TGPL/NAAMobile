@@ -5,7 +5,7 @@
   "homepage": "http://technogradient.com/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve ",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -53,11 +53,7 @@
     "group-array": "^1.0.0",
     "ionic-angular": "^3.9.9",
     "rxjs": "^6.5.3",
-<<<<<<< HEAD
     "sharp": "^0.23.2",
-=======
-    "rxjs-compat": "^6.5.3",
->>>>>>> c811b48c071511761019b499ed896f0601acea7a
     "tslib": "^1.9.0",
     "zone.js": "~0.8.29"
   },
@@ -108,15 +104,9 @@
       "cordova-plugin-ionic-webview": {}
     },
     "platforms": [
-<<<<<<< HEAD
       "android",
       "browser",
       "ios"
-=======
-      "ios",
-      "browser",
-      "android"
->>>>>>> c811b48c071511761019b499ed896f0601acea7a
     ]
   }
 }
