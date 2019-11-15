@@ -61,7 +61,8 @@ postRegister(){
     
     console.log(postData);
     let headers = new HttpHeaders({
-      'Content-Type' : 'application/json'
+      'Content-Type' : 'application/json',
+      'Authorization' : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQ5IiwiZW1haWwiOiJwcmFidUB0ZWNobm9ncmFkaWVudC5jb20iLCJnZW5kZXIiOiIzNjllNjM1Ny1kM2Q3LTQ3NWYtYjgxNS01NGQ1MjMzMzBiNmQiLCJuYmYiOjE1NzM3MzAzOTIsImV4cCI6MTU3MzczMjE5MiwiaWF0IjoxNTczNzMwMzkyLCJpc3MiOiJodHRwczovL2FwcC5uZXdhZ2VhbHBoYS5jb20iLCJhdWQiOiJodHRwczovL2FwcC5uZXdhZ2VhbHBoYS5jb20ifQ.enmtkfuUoXhqAQePxIlNFh5KGxbPSYkJCxCdZu0xVG8'
     });
 
     let options = {
